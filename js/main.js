@@ -39,7 +39,7 @@ class Render {
             <div class="col-lg-3 col-6 p-2 p-md-3">
             <div class="goods-card" data-id = "${_product.id}">
                 <div class="goods-card__img">
-                    <img class = "open" src="${_product.img}" alt="${_product.name}</">
+                    <img class = "open" src=".${_product.img}" alt="${_product.name}</">
                     <span class="label-weight">${_product.weight}гр.</span>
                     ${_product.label ? `<span class="label"><img src="img/new.png" alt="peper"></span>` : ''}
                 </div>
