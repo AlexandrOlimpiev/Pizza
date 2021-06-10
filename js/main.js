@@ -36,7 +36,7 @@ class Render {
         let productCart = '';
         products.forEach(_product => {
             productCart += `
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-3 col-6 p-2 p-md-3">
             <div class="goods-card" data-id = "${_product.id}">
                 <div class="goods-card__img">
                     <img class = "open" src="${_product.img}" alt="${_product.name}</">
@@ -267,8 +267,8 @@ class Render {
 
             let modalCartItem = cart.find(item => item.id === id)
             let modalCart = `
-              <div class="row">
-              <div class="col-sm-6 col-xs-12 d-flex flex-column ">
+              <div class="row px-2">
+              <div class="col-10 col-md-6 d-flex flex-column ">
               <h2 class="modal-body__title">${modalCartItem.name}</h2>
               <div class="modal-body_wheight">
                   <p>Вес:</p>
@@ -279,7 +279,7 @@ class Render {
                   <span class="modal-body_button" data-id ="${modalCartItem.id}">В корзину</span>
               </div>
           </div>
-              <div class="col-sm-6 col-xs-12">
+              <div class="col-2 col-md-6">
                   <div class="thumbnail">
                       <img src="${modalCartItem.img}"  alt="${modalCartItem.name}">
                   </div>
@@ -303,13 +303,13 @@ class Render {
 						<h2 class="order-title">Оформление заказа</h2>
 
 						<div class="container">
-							<div class="row">
-								<div class="col-5 d-flex ">
+							<div class="row ">
+								<div class="col-12 col-md-5 d-flex ">
 									<div class="order-goods">
 									
 									</div>
 								</div>
-								<div class="col-7 d-flex ">
+								<div class="col-12 col-md-7 d-flex ">
 									<form class="form-inputs">
 										<div class="d-flex">
 											<input class="order-input" type="text" placeholder="Ваше имя *">
