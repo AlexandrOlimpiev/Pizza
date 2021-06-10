@@ -281,7 +281,7 @@ class Render {
           </div>
               <div class="col-2 col-md-6">
                   <div class="thumbnail">
-                      <img src="${modalCartItem.img}"  alt="${modalCartItem.name}">
+                      <img src=".${modalCartItem.img}"  alt="${modalCartItem.name}">
                   </div>
               </div>
               <div class="col-12 pt-3">
@@ -372,7 +372,7 @@ class Render {
                 orderItem .classList.add('order-goods_item')
               orderItem.innerHTML = `
             <div class="order-goods_img">
-                <img src="${el.img}" alt="${el.name}">
+                <img src=".${el.img}" alt="${el.name}">
             </div>
             <div class="order-info">
                 <div class="order-info_title">
