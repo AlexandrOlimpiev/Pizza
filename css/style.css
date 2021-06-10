@@ -7,7 +7,7 @@
   --secondary: #fac564;
   --alert: #ff1736;
   --text: #939699;
-  --dark: #121417;
+  --dark: grey;
 }
 * {
   box-sizing: border-box;
