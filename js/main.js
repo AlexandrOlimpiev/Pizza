@@ -188,7 +188,7 @@ class Render {
                 notEmpty.innerHTML = `
                 <button class="remove-product" data-remove = "${cartItems.id}">+</button>
                 <div class="basket-item__img">
-                    <img src="${cartItems.img}" alt="${cartItems.name}">
+                    <img src=".${cartItems.img}" alt="${cartItems.name}">
                 </div>
                 <div class="basket-item__content" data-id = "${cartItems.id}">
                     <div class="basket-item__content-top">
