@@ -4,9 +4,9 @@
 }
 :root {
   --main: #000;
-  --secondary: #fac564;
+  --secondary: #ffd900;/*#ffd900,#fac564*/
   --alert: #ff1736;
-  --text: #939699;
+  --text: #f4f4f4;
   --dark: #1d1d1d;
 }
 * {
@@ -15,7 +15,7 @@
 body {
   margin: 0;
   font-family: "Oswald", sans-serif;
-  background-color: var(--dark);
+  background-color: var(--main);
 }
 main {
   min-height: 100vh;
@@ -36,7 +36,6 @@ img {
   padding: 5px;
 }
 .header-content {
-  background: linear-gradient(to bottom, var(--main), var(--dark) 75%);
   position: relative;
 }
 .header-content_wrap {
@@ -157,15 +156,16 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid var(--secondary);
+  /* border: 1px solid var(--secondary); */
   padding: 15px;
-  border-radius: 10px;
   transition: all 0.2s;
-  background-color: var(--main);
+ background-color: rgba(71, 69, 69, 0.2)
 }
 .goods-card:hover {
   box-shadow: 0px 0px 11px 0px rgb(50 50 50 / 43%);
   transform: scale(1.02);
+  background-color: var(--dark);
+  
 }
 .goods-card__title {
   font-weight: 500;
@@ -173,7 +173,7 @@ img {
   text-align: center;
   margin-bottom: auto;
   text-transform: uppercase;
-  color: var(--secondary);
+  color: var(--text);
   height: 90px;
 }
 .goods-card__img {
@@ -572,7 +572,7 @@ footer {
 }
 .modal-body_description {
   font-size: 18px;
-  color: #959595;
+  color: var(--text);
   margin-top: 0;
   position: relative;
   padding-left: 20px;
