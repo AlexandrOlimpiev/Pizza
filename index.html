@@ -40,9 +40,9 @@
 						</div>
 					</div>
 					<div class="col-lg-4 d-flex justify-content-between">
-					<!-- 	<div class="serch">
+						<div class="serch serch-button">
 							<img src="img/search.png" alt="serch">
-						</div> -->
+						</div>
 						<div class="basket-preview display-mobile">
 							<img src="img/shopping-basket.png" alt="backet">
 							<span class="badge">0</span>
@@ -89,7 +89,13 @@
 
 			</div>
 		</div>
-
+		<div class="serch-panel">
+			<form class="serch-panel_form">
+				<input class="serch-panel_input" type="text" placeholder="Поиск..."><button class="serch-panel_button"><img src="img/search.png" alt=""></button>
+				
+				<img class="serch-panel_close" src="img/delete.png" alt="">
+			</form>
+		</div>
 
 	</header>
 	<main>
@@ -128,21 +134,22 @@
 		<div class="mobile-menu_content">
 			<div class="mobile-menu_item">
 				<div class="basket-preview">
-					<img src="img/shopping-basket.png" alt="backet">
+					<i class="flaticon-shopping-basket"></i>
 					<span class="badge">6</span>
 				</div>
+				<span class="mobile-menu_text">Корзина</span>
 			</div>
 			<div class="mobile-menu_item">
-				<div class="basket-preview">
-					<img src="img/shopping-basket.png" alt="backet">
-					<span class="badge">6</span>
+				<div class="mobile-phone сallback-button">
+					<i class="flaticon-call"></i>
 				</div>
+				<span class="mobile-menu_text">Звонок</span>
 			</div>
 			<div class="mobile-menu_item">
-				<div class="basket-preview">
-					<img src="img/shopping-basket.png" alt="backet">
-					<span class="badge">6</span>
+				<div class="mobile-serch serch-button">
+					<i class="flaticon-search"></i>
 				</div>
+				<span class="mobile-menu_text">Поиск</span>
 			</div>
 		</div>
 	</div>
@@ -171,13 +178,23 @@
 			<div class="modal-content">
 				<div class="close-modal"></div>
 				<div class="modal-body">
-					
+
 				</div>
 			</div>
 		</div>
-		<div class="toast">
-			Товар добавлен в корзину!
-		</div>
+	</div>
+	<div class="toast">
+		Товар добавлен в корзину!
+	</div>
+	<div class="сallback">
+		<form class="сallback-form">
+			<input type="tel" placeholder="Ваш телефон">
+			<button >Жду звонка</button>
+			<div class="calbeck-close">
+				<img src="./img/close-modal.svg" alt="close">
+			</div>
+		</form>
+	</div>
 </body>
 <script src="js/main.js"></script>
 

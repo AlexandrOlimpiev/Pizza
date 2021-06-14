@@ -1,17 +1,22 @@
 
 const productLayout = document.querySelector('.product-layout'),
     navigationLink = document.querySelectorAll('.navigation-link'),
-    basketPreview = document.querySelector('.basket-preview'),
+    basketPreview = document.querySelectorAll('.basket-preview'),
     basket = document.querySelector('.basket'),
     createOrder = document.querySelector('.create-order'),
     close = document.querySelector('.close'),
     basketContent = document.querySelector('.basket-content'),
-    badge = document.querySelector('.badge'),
+    badge = document.querySelectorAll('.badge'),
     totalPrice = document.querySelector('.total-price'),
     basketEmpty = document.querySelector('.basket-empty'),
     modal = document.querySelector('.modal'),
-    modalBody = document.querySelector('.modal-body')
-    btnOrder = document.querySelector('.btn-order')
+    modalBody = document.querySelector('.modal-body'),
+    btnOrder = document.querySelector('.btn-order'),
+    сallbackButton = document.querySelectorAll('.сallback-button'),
+    serch = document.querySelector('.serch-panel_input'),
+    serchButtons = document.querySelectorAll('.serch-button'),
+    serchPanel = document.querySelector('.serch-panel'),
+    mobileItem = document.querySelectorAll('.mobile-menu_item')
 
 let cartContainer = []
 let cart = []
@@ -74,23 +79,42 @@ class Render {
             })
         })
     }
+    serchProducts() {
+        serchPanel.addEventListener('click',(e)=>{
+            e.preventDefault()
+            const elTarget = e.target
+            if(elTarget.closest('.serch-panel_button')){
+                let serchItem = serch.value
+                if(serchItem){
+                   const serchFilterProducts =  [...cart].filter((item)=>{
+                       if(item.name.toLowerCase().includes(serchItem.toLowerCase()))
+                       return item
+                    })
+                    if(serchFilterProducts.length > 0){
+                        this.displayProducts(serchFilterProducts)
+                    }else{
+                        this.displayProducts(cart)
+                    }
+                    
+                }
+                serch.value = '';
+            }else if(elTarget.classList.contains('serch-panel_close')){
+                serchPanel.classList.remove('active')
+            }
 
+        })
+    }
     productsButtons() {
         const cartButtons = [...document.querySelectorAll('.goods-card')]
         cartButtons.forEach((el) => {
             el.addEventListener('click', (e) => {
                 let item = e.target
                 let id = item.closest('.goods-card').dataset.id
-
-
-
                 if (e.target.classList.contains('goods-card__button-text')) {
-
                     this.addCart(id)
                     console.log(item, id)
                 } else if (e.target.classList.contains('open')) {
                     basket.classList.remove('active')
-
                     this.openModal(id)
                 }
 
@@ -105,6 +129,7 @@ class Render {
         this.filterProducts(data)
         this.renderCart(cartContainer)
         cart = data
+        
 
 
     }
@@ -170,6 +195,26 @@ class Render {
             this.openModal();
             basket.classList.remove('active')
         })
+        сallbackButton.forEach(el => {
+            el.addEventListener('click', () => {
+                document.querySelector('.сallback').classList.toggle('active')
+            })
+        })
+        serchButtons.forEach(el =>{
+            el.addEventListener('click',() => {
+                serchPanel.classList.toggle('active')
+                this.serchProducts()
+            })
+        })
+        mobileItem.forEach(el=>{
+            console.log(el)
+            el.addEventListener('click',() => {
+               mobileItem.forEach(el =>{
+                   el.classList.remove('active')
+               })
+               el.classList.add('active')
+            })
+        })
     }
     removeItemCart(id) {
         let basket = Storage.getCart()
@@ -232,7 +277,9 @@ class Render {
             })
             modalTotal = total
             totalPrice.innerHTML = total;
-            badge.innerHTML = cartItem.length
+            badge.forEach(el => {
+                el.innerHTML = cartItem.length
+            })
             if (cartItem.length == 0) {
                 const empty = document.createElement('div');
                 empty.classList.add('empty-basket')
@@ -369,15 +416,15 @@ class Render {
             const orderCart = Storage.getCart()
             orderCart.forEach(el => {
                 const orderItem = document.createElement('div');
-                orderItem .classList.add('order-goods_item')
-              orderItem.innerHTML = `
+                orderItem.classList.add('order-goods_item')
+                orderItem.innerHTML = `
             <div class="order-goods_img">
                 <img src=".${el.img}" alt="${el.name}">
             </div>
             <div class="order-info">
                 <div class="order-info_title">
                     <h3>${el.name}</h3>
-                    <span>${el.price*el.count}грн</span>
+                    <span>${el.price * el.count}грн</span>
                 </div>
                 <div class="order-weight">
                     <small >${el.weight}гр</small>
@@ -385,9 +432,9 @@ class Render {
                 </div>
             </div>
             `;
-            orderContainer.append(orderItem)
+                orderContainer.append(orderItem)
             })
-            
+
 
         }
 
@@ -428,8 +475,10 @@ document.addEventListener('DOMContentLoaded', () => {
         render.cartLogic()
     })
 
-    basketPreview.addEventListener('click', () => {
-        basket.classList.add('active')
+    basketPreview.forEach(el => {
+        el.addEventListener('click', () => {
+            basket.classList.add('active')
+        })
     })
     close.addEventListener('click', () => {
         basket.classList.remove('active')
@@ -443,10 +492,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function navFunction() {
         if (window.pageYOffset >= sticky) {
             navbar.classList.add("sticky")
-            basketPreview.classList.add("sticky")
+            basketPreview[0].classList.add("sticky")
         } else {
             navbar.classList.remove("sticky");
-            basketPreview.classList.remove("sticky");
+            basketPreview[0].classList.remove("sticky");
         }
     }
 
