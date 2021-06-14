@@ -946,6 +946,9 @@ footer {
 .serch-panel_close{
   cursor: pointer;
 }
+.mobile-menu{
+  display: none;
+}
 /*Media*/
 @media (max-width: 576px) {
   .contacts {
@@ -1024,13 +1027,16 @@ footer {
   }
   .mobile-menu {
     position: fixed;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.6);
     left: 50%;
     transform: translateX(-50%);
     bottom: 10px;
     z-index: 10;
     width: 80%;
     backdrop-filter: blur(10px);
+    display: block;
+    border:1px solid var(--secondary);
+    border-radius:10px;
    
   }
   .mobile-menu_content {
